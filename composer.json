@@ -1,0 +1,12 @@
+{
+  "name": "alieninternet/ais_txpplugin_packager",
+  "description": "Packaging tool for Textpattern plugins",
+  "keywords": ["textpattern", "plugin", "development"],
+  "homepage": "https://github.com/alieninternet/ais_txpplugin_packager",
+  "license": "GPL-3.0",
+  "type": "vendor",
+  "support": {
+    "issues": "https://github.com/alieninternet/ais_txpplugin_packager/issues",
+    "source": "https://github.com/alieninternet/ais_txpplugin_packager"
+  }
+}
