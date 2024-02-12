@@ -126,11 +126,11 @@ function pluginFlagsString(int $flags): string
     $flagArray = [];
     
     if ($flags & $PLUGIN_HAS_PREFS) {
-	$flagArray .= 'HAS_PREFS';
+	$flagArray[] = 'HAS_PREFS';
     }
-    
+
     if ($flags & $PLUGIN_LIFECYCLE_NOTIFY) {
-	$flagArray .= 'LIFECYCLE_NOTIFY';
+	$flagArray[] = 'LIFECYCLE_NOTIFY';
     }
     
     if (empty($flagArray)) {
