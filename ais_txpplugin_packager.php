@@ -163,25 +163,6 @@ echo ('             Flags: ' . $manifest['flags'] . ' (' . pluginFlagsString(int
 /* ********************************************************************************** */
 echo "\n";
 
-function loadFile($filename, $logText): ?string
-{
-    $filename = ($pluginPath . $filename);
-    
-    if (file_exists($filename)) {
-	$data = file_get_contents($filename);
-	
-	if ($data !== false) {
-	    echo (str_pad($logText, 15) . ': ' . basename($filename) . " ($size bytes)\n");
-	    $size = strlen($data);
-	    
-	    
-	    return $data;
-	}
-    }
-	
-    return null;
-}
-
 // Read in code
 $codeFilename = ($pluginPath . $plugin . '.php');
 if (file_exists($codeFilename)) {
@@ -199,12 +180,22 @@ if (substr($code, 0, 5) === '<?php') {
     $code = substr($code, 5);
 }
 
+// Try to find a data file
+$dataFilename = ($pluginPath . 'data.txp');
+if (file_exists($dataFilename)) {
+    $data = file_get_contents($dataFilename);
+}
+if (isset($data) &&
+    ($data !== false)) {
+    echo ("              Data: " . basename($dataFilename) . ' (' . strlen($data) . " bytes)\n");
+}
+
 // Try to find a textpack
 $textpackFilename = ($pluginPath . 'textpack.txp');
 if (file_exists($textpackFilename)) {
     $textpack = file_get_contents($textpackFilename);
 }
-if (!isset($textpack) ||
+if (isset($textpack) &&
     ($textpack !== false)) {
     echo ("          Textpack: " . basename($textpackFilename) . ' (' . strlen($textpack) . " bytes)\n");
 }
@@ -214,7 +205,7 @@ $helpHTMLFilename = ($pluginPath . 'help.html');
 if (file_exists($helpHTMLFilename)) {
     $helpHTML = file_get_contents($helpHTMLFilename);
 }
-if (!isset($helpHTML) ||
+if (isset($helpHTML) &&
     ($helpHTML !== false)) {
     echo ("         HTML help: " . basename($helpHTMLFilename) . ' (' . strlen($helpHTML) . " bytes)\n");
 }
@@ -224,7 +215,7 @@ $helpTextileFilename = ($pluginPath . 'help.textile');
 if (file_exists($helpTextileFilename)) {
     $helpTextile = file_get_contents($helpTextileFilename);
 }
-if (!isset($helpTextile) ||
+if (isset($helpTextile) &&
     ($helpTextile !== false)) {
     echo ("      Textile help: " . basename($helpTextileFilename) . ' (' . strlen($helpTextile) . " bytes)\n");
 }
@@ -240,15 +231,23 @@ $packed['name'] = $plugin;
 $packedFileCount = 1;
 $packed['code'] = $code;
 $packed['code_md5'] = md5($code);
-if (is_string($textpack)) {
+if (isset($data) &&
+    is_string($data)) {
+    $packed['data'] = $data;
+    ++$packedFileCount;
+}
+if (isset($textpack) &&
+    is_string($textpack)) {
     $packed['textpack'] = $textpack;
     ++$packedFileCount;
 }
-if (is_string($helpHTML)) {
+if (isset($helpHTML) &&
+    is_string($helpHTML)) {
     $packed['help'] = $helpHTML;
     ++$packedFileCount;
 }
-if (is_string($helpTextile)) {
+if (isset($helpTextile) &&
+    is_string($helpTextile)) {
     $packed['help_raw'] = $helpTextile;
     ++$packedFileCount;
 }
