@@ -157,7 +157,7 @@ if (isset($manifest['order'])) {
     echo ('             Order: ' . $manifest['order'] . "\n");
 }
 echo ('              Type: ' . $manifest['type'] . ' (' . pluginTypeString(intval($manifest['type'])). ")\n");
-echo ('             Flags: ' . $manifest['flags'] . ' (' . pluginFlagsString(intval($manifest['type'])). ")\n");
+echo ('             Flags: ' . $manifest['flags'] . ' (' . pluginFlagsString(intval($manifest['flags'])). ")\n");
 
 
 /* ********************************************************************************** */
