@@ -2,7 +2,7 @@
 
 This tool will produce a packed, gzipped, base64 encoded plugin package similar to that provided by zem_tpl and other tools, compatible with Textpattern 4.8.x.
 
-This is not a plugin for Textpattern, not is is a template to build a plugin from. Instead, the purpose is to allow Textpattern plugins to be developed with stand-alone package files rather than one monolothic file, such as the zem plugin template style).
+This is not a plugin for Textpattern, nor is it a template to build a plugin from. Instead, the purpose is to allow Textpattern plugins to be developed with stand-alone package files rather than one monolothic file, such as the zem plugin template style).
 
 The reason is that monolithic files are poor candidates for version control make it difficult to work efficiently with different file types, and increase maintenance complexity for complex plugins.
 
