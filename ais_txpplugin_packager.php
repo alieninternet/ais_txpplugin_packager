@@ -126,11 +126,11 @@ function pluginFlagsString(int $flags): string
     $flagArray = [];
     
     if ($flags & $PLUGIN_HAS_PREFS) {
-	$flagArray .= 'HAS_PREFS';
+	$flagArray[] = 'HAS_PREFS';
     }
-    
+
     if ($flags & $PLUGIN_LIFECYCLE_NOTIFY) {
-	$flagArray .= 'LIFECYCLE_NOTIFY';
+	$flagArray[] = 'LIFECYCLE_NOTIFY';
     }
     
     if (empty($flagArray)) {
@@ -157,7 +157,7 @@ if (isset($manifest['order'])) {
     echo ('             Order: ' . $manifest['order'] . "\n");
 }
 echo ('              Type: ' . $manifest['type'] . ' (' . pluginTypeString(intval($manifest['type'])). ")\n");
-echo ('             Flags: ' . $manifest['flags'] . ' (' . pluginFlagsString(intval($manifest['type'])). ")\n");
+echo ('             Flags: ' . $manifest['flags'] . ' (' . pluginFlagsString(intval($manifest['flags'])). ")\n");
 
 
 /* ********************************************************************************** */

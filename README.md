@@ -16,11 +16,17 @@ The reason is that monolithic files are poor candidates for version control make
         textpack.txp          - Textpack file (optional)
         help.textile          - Textile formatted help (optional, recommended)
         help.help             - HTML formatted help (optional)
+        data.txp              - Included resources (optional)
 ```
 
 3. Write your plugin!
 
-4. Execute the package tool, specifying the path to the plugin; it will output a text file appropriately encoded, based on the plugin name and version in the manifest. For example:
+4. Execute the package tool, specifying the path to the plugin; it will output a text file appropriately encoded, based on the plugin name and version in the manifest. If desired, you may specify an output filename and location:
+```
+   php ais_txpplugin_packager.php <plugin_path> [<output_file>]
+```
+
+For example:
 ```
    php ais_txpplugin_packager.php /var/www/txp/sites/dev/admin/plugins/xxx_plugin_name
 ```
