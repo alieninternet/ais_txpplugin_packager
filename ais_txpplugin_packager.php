@@ -1,3 +1,4 @@
+#! /usr/bin/php
 <?php
 /**
  * ais_txpplugin_packager - Packaging tool for Textpattern plugins
