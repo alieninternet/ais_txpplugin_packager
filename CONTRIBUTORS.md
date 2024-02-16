@@ -1,4 +1,4 @@
 ## Contributors
 
 - [Ashley Butcher](https://github.com/Ashley-Butcher)
-- [jools-r](jools-r)
+- [jools-r](https://github.com/jools-r)
