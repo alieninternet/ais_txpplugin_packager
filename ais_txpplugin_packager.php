@@ -32,7 +32,7 @@
  *
  * 
  * @author	Ashley Butcher
- * @copyright   Copyright (C) 2022-2024 Ashley Butcher (Alien Internet Services)
+ * @copyright   Copyright (c) 2022-2024 Alien Internet Services
  * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License version 3
  * @version	0.1
  * @link	https://github.com/alieninternet/ais_txpplugin_packager/
