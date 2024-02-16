@@ -2,6 +2,7 @@
 <?php
 /**
  * ais_txpplugin_packager - Packaging tool for Textpattern plugins
+ *
  * 
  * This tool will produce a packed, gzipped, base64 encoded plugin package
  * similar to that provided by zem_tpl and other tools, compatible with
@@ -15,7 +16,6 @@
  * make it difficult to work efficiently with different file types, and increase
  * maintenance complexity for complex plugins.
  * 
- * Copyright (C) 2022-2024 Ashley Butcher (Alien Internet Services)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @author	Ashley Butcher (Alien Internet Services)
+ * 
+ * @author	Ashley Butcher
  * @copyright   Copyright (C) 2022-2024 Ashley Butcher (Alien Internet Services)
  * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License version 3
  * @version	0.1
