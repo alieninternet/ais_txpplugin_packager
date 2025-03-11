@@ -41,7 +41,7 @@ For example:
 
 ### As a part of a GitHub workflow
 
-Using a YAML workflow, you can run this packager without having to download it by using the `alieninternet/build-txpplugin-txt` GitHub action.
+Using a YAML workflow, you can run this packager without having to download it by using the [`alieninternet/build-txpplugin-txt` GitHub action](https://github.com/marketplace/actions/build-textpattern-plugin-txt-package).
 
 Here is a simple example ([from here](https://github.com/alieninternet/build-txpplugin-txt/blob/main/examples/simple.md)):
 
