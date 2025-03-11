@@ -8,6 +8,10 @@ The reason is that monolithic files are poor candidates for version control make
 
 ## How to use
 
+This tool can be used either manually on the command line, for as a part of a GitHub workflow.
+
+### As a command line tool
+
 1. Create a folder for the plugin with the following file structure :
 ```
     plugin_name/
@@ -21,16 +25,46 @@ The reason is that monolithic files are poor candidates for version control make
 
 3. Write your plugin!
 
-4. Execute the package tool, specifying the path to the plugin; it will output a text file appropriately encoded, based on the plugin name and version in the manifest. If desired, you may specify an output filename and location:
+4. Execute the package tool, specifying the path to the plugin; it will output a text file appropriately encoded, with a name based on the plugin name and version in the manifest unless you override the output file name.
 ```shell
-   php ais_txpplugin_packager.php <plugin_path> [<output_file>]
+   php ais_txpplugin_packager.phar <plugin_path> [<output_file>]
 ```
 
 For example:
 ```shell
-   php ais_txpplugin_packager.php /var/www/txp/sites/dev/admin/plugins/xxx_plugin_name
+   php ais_txpplugin_packager.phar ./path/to/xxx_plugin_name
 ```
 
 5. Test your package in a test environment to ensure it is packed and unpacked correctly
 
 6. Release your plugin!
+
+### As a part of a GitHub workflow
+
+Using a YAML workflow, you can run this packager without having to download it by using the `alieninternet/build-txpplugin-txt` GitHub action.
+
+Here is a simple example ([from here](https://github.com/alieninternet/build-txpplugin-txt/blob/main/examples/simple.md)):
+
+```yaml
+on:
+  release:
+    type: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v4
+
+      - name: Build and release package
+        uses: alieninternet/build-txpplugin-txt@v1
+        with:
+          folder: './path/to/xxx_plugin_name'
+          release_files: 'true'
+```
+
+For more information, see the [alieninternet/build-txpplugin-txt](https://github.com/alieninternet/build-txpplugin-txt) project for more details.
